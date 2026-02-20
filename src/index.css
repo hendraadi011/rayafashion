@@ -1,0 +1,152 @@
+/* ===== Google Fonts ===== */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* ===== Tailwind ===== */
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "font-a1";
+  src: local("font-a1"),
+    url("./fonts/Haymila-Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+/* ===== CSS Variables ===== */
+:root {
+  --header-height: 3.5rem;
+
+  /* Colors */
+  --first-color: hsl(183, 37%, 48%);
+  --first-color-alt: hsl(358, 54%, 46%);
+  --first-color-light: hsl(358, 50%, 58%);
+  --title-color: hsl(34, 8%, 16%);
+  --text-color: hsl(34, 8%, 40%);
+  --white-color: hsl(34, 64%, 98%);
+  --gray-color: hsl(34, 8%, 85%);
+  --body-color: hsl(34, 100%, 94%);
+  --body-color-alt: hsl(34, 70%, 88%);
+  --container-color: hsl(34, 32%, 98%);
+
+  /* Fonts */
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Lora", serif;
+
+  /* Font size */
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /* Font weight */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /* Custom theme color */
+  --color-g-1: #ad49e1;
+
+  --font-a1: "font-a1", "sans-serif"
+}
+
+
+@theme {
+  --color-fc: hsl(183, 37%, 48%);
+  --color-bc: hsl(34, 100%, 94%);
+  --color-bca: hsl(34, 70%, 88%);
+
+
+  --font-a1: font-a1, sans-serif;
+  --font-a2:  "Lora", sans-serif
+
+
+}
+
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-[1120px] ;
+  }
+
+  .section {
+    @apply pt-28 pb-20;
+  }
+}
+
+
+/*========== Responsive typography ==========*/
+@media screen and (width >= 1150px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+    --bigger-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  /* color: var(--title-color); */
+  /* font-weight: var(--font-semi-bold); */
+  font-family: var(--second-font);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+

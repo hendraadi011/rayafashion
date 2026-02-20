@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "platform": ["web", "flutter"]
+  },
+
+  "palette": {
+    "primary": "#DC0000",
+    "secondary": "#0046FF",
+    "accent": "#F97316",
+    "danger": "#EF4444",
+
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+
+    "textPrimary": "#0F172A",
+    "textSecondary": "#64748B"
+  },
+
+  "typography": {
+    "fontFamily": "Inter",
+    "body": {
+      "color": "{palette.textPrimary}"
+    },
+    "heading": {
+      "color": "{palette.textPrimary}"
+    }
+  },
+
+  "shadowPreset": {
+    "soft": { "x": 0, "y": 4, "blur": 12, "spread": 0, "opacity": 0.15 },
+    "medium": { "x": 0, "y": 10, "blur": 40, "spread": 0, "opacity": 0.2 }
+  },
+
+  "pages": {
+    "profile": {
+      "card": "{components.card}",
+      "header": "{components.header}",
+      "buttonSave": "{components.button.primary}"
+    }
+  },
+
+  "components": {
+    "card": {
+      "bg": "{palette.surface}",
+      "text": "{palette.textPrimary}",
+      "radius": 16,
+      "font": "",
+      "fontSize": "",
+      "border": "",
+      "shadow": "{shadowPreset.soft}",
+      "hover": {}
+    },
+
+    "button": {
+      "primary": {
+        "bg": "{palette.primary}",
+        "text": "#FFFFFF",
+        "radius": 10,
+        "font": "",
+        "fontSize": "",
+        "border": "",
+        "shadow": "{shadowPreset.soft}",
+        "hover": {
+          "bg": "#B80000",
+          "text": "#FFFFFF"
+        }
+      },
+      "secondary": {
+        "bg": "#FFFFFF",
+        "text": "{palette.primary}",
+        "radius": 10,
+        "font": "",
+        "fontSize": "",
+        "border": "1px solid {palette.primary}",
+        "shadow": "{shadowPreset.soft}",
+        "hover": {
+          "bg": "{palette.primary}",
+          "text": "#FFFFFF"
+        }
+      }
+    },
+
+    "header": {
+      "bg": "#FFFFFF",
+      "text": "#FFFFFF",
+      "radius": 0,
+      "font": "",
+      "fontSize": "",
+      "border": "",
+      "shadow": "{shadowPreset.medium}",
+      "hover": {},
+
+      "logo": {
+        "type": "image",
+        "size": {
+          "width": 10,
+          "height": 48,
+          "unit": "px",
+          "objectFit": "contain"
+        },
+
+        "bg": "",
+        "radius": 8,
+        "border": "",
+        "shadow": "",
+
+        "hover": {
+          "scale": 1.05,
+          "opacity": 0.9
+        }
+      },
+
+      "buttons": {
+        "cart": {
+          "bg": "",
+          "text": "#FFFFFF",
+          "radius": 10,
+          "font": "",
+          "fontSize": "",
+           "fontWeight": 0,
+          "border": "",
+          "shadow": "{shadowPreset.soft}",
+          "hover": {
+            "bg": "#FFFFFF",
+            "text": "#0046FF"
+          }
+        },
+        "language": {
+          "bg": "",
+          "text": "#FFFFFF",
+          "radius": 10,
+          "font": "",
+          "fontSize": "",
+           "fontWeight": 0,
+          "border": "",
+          "shadow": "{shadowPreset.soft}",
+          "hover": {
+            "bg": "#FFFFFF",
+            "text": "#0046FF"
+          }
+        }
+      }
+    },
+
+    "section": {
+      "product-terlaris": {
+        "bg": "",
+        "text": "",
+        "radius": 16,
+        "font": "",
+        "fontSize": "",
+         "fontWeight": 0,
+        "border": "",
+        "shadow": "{shadowPreset.soft}",
+        "hover": {},
+
+        "button": "{components.button.primary}",
+        "price": {
+          "bg": "",
+          "text": "{palette.textPrimary}",
+          "radius": 8,
+          "font": "",
+          "fontSize": "",
+           "fontWeight": 0,
+          "border": "",
+          "shadow": "",
+          "hover": {}
+        }
+      },
+
+      "product-baru": {
+        "bg": "",
+        "text": "",
+        "radius": 16,
+        "font": "",
+        "fontSize": "",
+         "fontWeight": 0,
+        "border": "",
+        "shadow": "{shadowPreset.soft}",
+        "hover": {},
+
+        "button": "{components.button.primary}",
+        "price": {
+          "bg": "",
+          "text": "{palette.textPrimary}",
+          "radius": 8,
+          "font": "",
+          "fontSize": "",
+           "fontWeight": 0,
+          "border": "",
+          "shadow": "",
+          "hover": {}
+        }
+      }
+    },
+
+    "filter-category": {
+      "bg": "",
+      "text": "",
+      "radius": 8,
+      "font": "",
+      "fontSize": "",
+       "fontWeight": 0,
+      "border": "",
+      "shadow": "",
+      "hover": {}
+    },
+
+    "footer": {
+      "bg": "#0F172A",
+      "text": "#CBD5F5",
+      "radius": 0,
+      "font": "",
+      "fontSize": "",
+       "fontWeight": 0,
+      "border": "",
+      "shadow": "",
+      "hover": {}
+    }
+  }
+}
