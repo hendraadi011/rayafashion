@@ -61,9 +61,9 @@
 
 
 @theme {
-  --color-fc: hsl(183, 37%, 48%);
-  --color-bc: hsl(34, 100%, 94%);
-  --color-bca: hsl(34, 70%, 88%);
+  --color-fc: #6E5034;
+  --color-bc: #7B542F;
+  --color-bca: #703B3B;
 
 
   --font-a1: font-a1, sans-serif;

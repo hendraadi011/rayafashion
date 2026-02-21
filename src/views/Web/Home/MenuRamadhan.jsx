@@ -2,35 +2,44 @@ import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
-// gambar
-import kue1 from '../../../assets/kue/1.jpeg'
-import kue2 from '../../../assets/kue/2.jpeg'
-import kue3 from '../../../assets/kue/3.jpeg'
-import kue4 from '../../../assets/kue/4.jpeg'
+// gambar hijab
+import img1 from '../../../assets/hijab/1.jpeg'
+import img2 from '../../../assets/hijab/2.jpeg'
+import img3 from '../../../assets/hijab/3.jpeg'
+import img4 from '../../../assets/hijab/4.jpeg'
+import img5 from '../../../assets/hijab/5.jpeg'
+import img6 from '../../../assets/hijab/6.jpeg'
 
+// nomor WhatsApp
+const phoneNumber = '6285785242714'
+
+// kategori hijab
 const categories = [
-  { id: 'kering', name: 'Kue Kering' },
-  { id: 'basah', name: 'Kue Basah' },
-  { id: 'hampers', name: 'Hampers' },
-  { id: 'premium', name: 'Premium' },
+  { id: 'pashmina', name: 'Pashmina' },
+  { id: 'segiempat', name: 'Segi Empat' },
 ]
 
-const menuData = {
-  kering: [
-    { name: 'Nastar Premium', price: 'Rp 75.000', stock: 20, img: kue1 },
-    { name: 'Kastengel Keju', price: 'Rp 80.000', stock: 15, img: kue2 },
-    { name: 'Putri Salju', price: 'Rp 70.000', stock: 18, img: kue3 },
+// data produk
+const productData = {
+  pashmina: [
+    { name: 'Pashmina Silk Black', price: 'Rp 75.000', stock: 12, img: img1 },
+    {
+      name: 'Pashmina Premium White',
+      price: 'Rp 80.000',
+      stock: 10,
+      img: img2,
+    },
+    { name: 'Pashmina Ceruty Soft', price: 'Rp 70.000', stock: 15, img: img3 },
   ],
-  basah: [
-    { name: 'Lapis Legit', price: 'Rp 120.000', stock: 10, img: kue4 },
-    { name: 'Kue Lumpur', price: 'Rp 35.000', stock: 25, img: kue1 },
-  ],
-  hampers: [
-    { name: 'Hampers Mini', price: 'Rp 150.000', stock: 12, img: kue2 },
-    { name: 'Hampers Family', price: 'Rp 300.000', stock: 8, img: kue3 },
-  ],
-  premium: [
-    { name: 'Hampers Exclusive', price: 'Rp 500.000', stock: 5, img: kue4 },
+  segiempat: [
+    {
+      name: 'Hijab Segi Empat Polos',
+      price: 'Rp 45.000',
+      stock: 20,
+      img: img4,
+    },
+    { name: 'Hijab Motif Elegan', price: 'Rp 55.000', stock: 18, img: img5 },
+    { name: 'Hijab Premium Cotton', price: 'Rp 65.000', stock: 14, img: img6 },
   ],
 }
 
@@ -38,36 +47,42 @@ const MenuRamadhan = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [swiperRef, setSwiperRef] = useState(null)
 
+  // fungsi order WhatsApp
+  const handleOrder = (productName) => {
+    const message = `Halo, saya ingin order *${productName}*`
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank')
+  }
+
   return (
-    <section className='py-16 bg-fc text-white'>
-      <div className='container mx-auto px-4' id='menu'>
-        <h2 className='text-3xl font-bold text-center mb-10'>
-          Menu Kue Spesial Ramadhan
+    <section className='py-20 bg-white' id='produk'>
+      <div className='container mx-auto px-6'>
+        <h2 className='text-3xl lg:text-4xl font-bold text-center mb-10'>
+          Koleksi Hijab Terbaru
         </h2>
 
         {/* ===== Category Tabs ===== */}
-        <div className='mb-10 flex flex-wrap justify-center gap-2'>
+        <div className='flex justify-center gap-3 mb-10 flex-wrap'>
           {categories.map((cat, index) => (
-            // <SwiperSlide key={index} className='!w-auto'>
             <button
+              key={index}
               onClick={() => {
                 setActiveIndex(index)
                 swiperRef?.slideTo(index)
               }}
-              className={`px-5 py-2 rounded-full border  transition  justify-center overflow-auto menu__button
-                ${
-                  activeIndex === index
-                    ? 'bg-white text-fc border-white'
-                    : 'bg-white/20 border-white text-white hover:bg-white hover:text-fc'
-                }`}
+              className={`px-6 py-2 rounded-full border transition font-medium
+              ${
+                activeIndex === index
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-black border-gray-300 hover:bg-black hover:text-white'
+              }`}
             >
               {cat.name}
             </button>
-            // </SwiperSlide>
           ))}
         </div>
 
-        {/* ===== Content Swiper (1 slide = 1 kategori) ===== */}
+        {/* ===== Swiper Produk ===== */}
         <Swiper
           onSwiper={setSwiperRef}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -76,38 +91,41 @@ const MenuRamadhan = () => {
         >
           {categories.map((cat, index) => (
             <SwiperSlide key={index}>
-              <div
-                className='grid gap-4
-                grid-cols-2
-                sm:grid-cols-2
-                md:grid-cols-3
-                lg:grid-cols-4 menu__content'
-              >
-                {menuData[cat.id].map((item, i) => (
+              <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+                {productData[cat.id].map((item, i) => (
                   <div
                     key={i}
-                    className='bg-white/10 rounded-xl p-3 backdrop-blur-sm
-          hover:bg-white transition group flex flex-col w-full'
+                    className='bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col group'
                   >
                     {/* Image */}
-                    <div className='w-full aspect-square rounded-lg overflow-hidden bg-white/20 mb-3'>
+                    <div className='aspect-square overflow-hidden'>
                       <img
                         src={item.img}
                         alt={item.name}
-                        className='w-full h-full object-cover'
+                        className='w-full h-full object-cover group-hover:scale-105 transition duration-300'
                       />
                     </div>
 
                     {/* Content */}
-                    <h3 className='text-[1rem] font-semibold text-center mb-1 group-hover:text-gray-800 line-clamp-2'>
-                      {item.name}
-                    </h3>
+                    <div className='p-4 flex flex-col flex-grow'>
+                      <h3 className='font-semibold text-sm mb-1 line-clamp-2'>
+                        {item.name}
+                      </h3>
 
-                    <div className='flex justify-between text-xs sm:text-sm mt-auto group-hover:text-gray-700'>
-                      <span className='font-bold group-hover:text-fc'>
-                        {item.price}
-                      </span>
-                      <span>Stok {item.stock}</span>
+                      <div className='flex justify-between text-sm text-gray-600 mb-3'>
+                        <span className='font-bold text-black'>
+                          {item.price}
+                        </span>
+                        <span>Stok {item.stock}</span>
+                      </div>
+
+                      {/* Button Order */}
+                      <button
+                        onClick={() => handleOrder(item.name)}
+                        className='mt-auto bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition'
+                      >
+                        Order via WhatsApp
+                      </button>
                     </div>
                   </div>
                 ))}

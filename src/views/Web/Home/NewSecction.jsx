@@ -1,90 +1,118 @@
-import img1 from '../../../assets/img/img1.png'
-import img2 from '../../../assets/img/img2.png'
-import img3 from '../../../assets/img/img3.png'
-import img4 from '../../../assets/img/img4.png'
-import img5 from '../../../assets/img/img5.png'
-import img6 from '../../../assets/img/img6.png'
+import React from 'react'
 
-import flower from '../../../assets/ornamen/1.png'
-import leaf1 from '../../../assets/ornamen/f1.webp'
-import leaf2 from '../../../assets/ornamen/leaf-2.svg'
-import leaf3 from '../../../assets/ornamen/leaf-3.svg'
-// import bulan from '../../../assets/ornamen/bulan.png'
+import img1 from '../../../assets/hijab/1.jpeg'
+import img2 from '../../../assets/hijab/2.jpeg'
+import img3 from '../../../assets/hijab/3.jpeg'
+import img4 from '../../../assets/hijab/4.jpeg'
+
+const phoneNumber = '6285785242714'
+
+const handleOrder = (product) => {
+  const message = `Halo, saya ingin order promo Ramadhan untuk *${product}*`
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+  window.open(url, '_blank')
+}
 
 const NewSection = () => {
   return (
-    <section id='new' className='pt-20 pb-16'>
-      <div className='container mx-auto px-4 grid gap-16 md:grid-cols-2 items-center new__data'>
+    <section id='new' className='py-20 bg-black text-white'>
+      <div className='container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center'>
         {/* ===== LEFT CONTENT ===== */}
-        <div className='relative text-center md:text-left'>
-          {/* Subtitle */}
-          <span className='block font-semibold text-sm md:text-base text-fc mb-2 tracking-wide font-a2 section__title'>
-            Menu Spesial Lebaran
+        <div>
+          <span className='uppercase tracking-widest text-gray-400 text-sm'>
+            Promo Spesial Ramadhan
           </span>
 
-          {/* Title */}
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight section__subtitle'>
-            Aneka Kue Lebaran <br />
-            <span className='text-fc'>Fresh & Premium</span>
+          <h2 className='text-4xl lg:text-5xl font-bold mt-3 leading-tight'>
+            Diskon Hijab <br />
+            <span className='text-white'>Up To 30%</span>
           </h2>
 
-          {/* Description */}
-          <p className='text-gray-500 text-sm md:text-base lg:text-lg max-w-md mx-auto md:mx-0 new__description'>
-            Nikmati berbagai pilihan kue lebaran terbaik seperti nastar,
-            kastengel, putri salju, dan hampers eksklusif. Dibuat dari bahan
-            berkualitas untuk melengkapi momen spesial Hari Raya bersama
-            keluarga tercinta.
+          <p className='text-gray-400 mt-6 max-w-md leading-relaxed'>
+            Sambut bulan suci Ramadhan dengan koleksi hijab premium warna hitam
+            & putih yang elegan. Bahan nyaman, stylish, dan cocok untuk
+            aktivitas sehari-hari maupun acara spesial.
           </p>
 
-          {/* Ornaments */}
-          <img src={flower} alt='' className='absolute w-5 top-5 left-0' />
-          <img
-            src={flower}
-            alt=''
-            className='absolute w-5 left-1/2 -translate-x-1/2 -bottom-8'
-          />
-          <img src={leaf1} alt='' className='absolute w-7 top-2 right-0' />
-          <img src={leaf2} alt='' className='absolute w-6 -bottom-16 left-2' />
+          <button
+            onClick={() => handleOrder('Promo Ramadhan')}
+            className='mt-8 bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition'
+          >
+            Order Sekarang
+          </button>
+
+          {/* Promo Badge */}
+          <div className='mt-6 ml-3 inline-block bg-white/10 border border-white/20 px-4 py-2 rounded-lg text-sm'>
+            ✨ Promo terbatas selama bulan Ramadhan
+          </div>
         </div>
 
-        {/* ===== RIGHT IMAGES ===== */}
-        <div className='relative flex justify-center new__images'>
-          {/* Blob */}
-          <div className='w-[200px] h-[320px] lg:w-[350px] lg:h-[560px] bg-fc rounded-xl ml-16 new__blob'></div>
+        {/* ===== RIGHT PRODUCTS ===== */}
+        <div className='grid grid-cols-2 gap-6'>
+          {[
+            {
+              name: 'Pashmina Premium',
+              oldPrice: 'Rp 85.000',
+              price: 'Rp 60.000',
+              img: img1,
+            },
+            {
+              name: 'Hijab Segi Empat',
+              oldPrice: 'Rp 65.000',
+              price: 'Rp 45.000',
+              img: img2,
+            },
+            {
+              name: 'Pashmina Ceruty',
+              oldPrice: 'Rp 75.000',
+              price: 'Rp 55.000',
+              img: img3,
+            },
+            {
+              name: 'Hijab Cotton Premium',
+              oldPrice: 'Rp 90.000',
+              price: 'Rp 65.000',
+              img: img4,
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className='bg-white text-black rounded-xl overflow-hidden shadow-lg group hover:shadow-2xl transition'
+            >
+              {/* Image */}
+              <div className='relative'>
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className='w-full h-44 object-cover group-hover:scale-105 transition duration-300'
+                />
 
-          {/* Images */}
-          <img
-            src={img1}
-            alt=''
-            className='absolute w-[270px] lg:w-[400px] right-0 -bottom-9'
-          />
-          <img
-            src={img4}
-            alt=''
-            className='absolute w-[200px] -top-3 lg:top-12 lg:-right-10 right-10 lg:w-[300px]'
-          />
+                {/* Discount Badge */}
+                <div className='absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded'>
+                  -30%
+                </div>
+              </div>
 
-          <img
-            src={img5}
-            alt=''
-            className='absolute w-[150px] lg:w-[300px] -bottom-5 left-25'
-          />
+              {/* Content */}
+              <div className='p-4'>
+                <h3 className='font-semibold text-sm mb-1'>{item.name}</h3>
 
-          <img
-            src={img3}
-            alt=''
-            className='absolute w-[200px] lg:w-[350px] -top-8 lg:bottom-20 right-[10rem]'
-          />
+                <div className='text-sm mb-3'>
+                  <span className='line-through text-gray-400 mr-2'>
+                    {item.oldPrice}
+                  </span>
+                  <span className='font-bold text-black'>{item.price}</span>
+                </div>
 
-          {/* Small ornaments */}
-          <img src={flower} alt='' className='absolute w-15 top-12 -right-8' />
-          <img src={flower} alt='' className='absolute w-5 -bottom-8 left-24' />
-          <img src={leaf3} alt='' className='absolute w-5 top-40 left-3' />
-
-          {/* Background Text */}
-          {/* <h2 className='absolute -bottom-10 left-0 text-6xl font-medium text-gray-100 -z-10'>
-            刺身料理
-          </h2> */}
+                <button
+                  onClick={() => handleOrder(item.name)}
+                  className='w-full bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition'
+                >
+                  Order WhatsApp
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

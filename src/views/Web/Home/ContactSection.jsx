@@ -1,102 +1,79 @@
 const ContactSection = () => {
+  const phoneNumber = '6285785242714'
+  const waLink = `https://wa.me/${phoneNumber}?text=Halo, saya ingin bertanya tentang koleksi hijab`
+
   return (
-    <section
-      id='contact'
-      className='bg-fc text-white py-16 relative overflow-hidden'
-    >
-      <div className='container mx-auto px-4'>
-        {/* Title */}
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-10'>
-          Hubungi Kami & Pesan <br /> Kue Lebaran Terbaik
-        </h2>
-
-        <div className='relative grid gap-12 pb-8'>
-          {/* Background Text */}
-          {/* <h2 className='absolute text-6xl font-medium text-white/10 -top-20 left-0 leading-none'>
-            日 <br /> 本
+    <section id='contact' className='bg-white py-20'>
+      <div className='container mx-auto px-6'>
+        {/* ===== Title ===== */}
+        <div className='text-center mb-12'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-black'>
+            Hubungi Kami & Order Hijab
           </h2>
-          <h2 className='absolute text-6xl font-medium text-white/10 bottom-10 right-0 leading-none'>
-            接 <br /> 触
-          </h2> */}
+          <p className='text-gray-600 mt-4 max-w-xl mx-auto'>
+            Konsultasi warna, model, dan ketersediaan produk. Kami siap membantu
+            Anda mendapatkan hijab terbaik.
+          </p>
+        </div>
 
-          {/* Contact Info */}
-          <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10'>
-            {/* Social */}
-            <div>
-              <h3 className='text-sm mb-2 font-semibold'>Pesan via:</h3>
-              <div className='flex justify-center gap-4 text-2xl'>
-                <a
-                  href='#'
-                  target='_blank'
-                  className='hover:scale-110 transition'
-                >
-                  <i className='ri-messenger-line'></i>
-                </a>
+        {/* ===== CTA WhatsApp ===== */}
+        <div className='flex justify-center mb-14'>
+          <a
+            href={waLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition flex items-center gap-3 shadow-md'
+          >
+            <i className='ri-whatsapp-line text-2xl'></i>
+            Chat WhatsApp Sekarang
+          </a>
+        </div>
 
-                <a
-                  href='https://wa.me/628xxxxxxxxxx'
-                  target='_blank'
-                  className='hover:scale-110 transition'
-                >
-                  <i className='ri-whatsapp-line'></i>
-                </a>
-
-                <a
-                  href='mailto:email@gmail.com'
-                  target='_blank'
-                  className='hover:scale-110 transition'
-                >
-                  <i className='ri-mail-line'></i>
-                </a>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div>
-              <h3 className='text-sm mb-2 font-semibold'>Lokasi:</h3>
-              <p className='text-sm text-white/90'>
-                Surabaya <br />
-                Jawa Timur
-              </p>
-            </div>
-
-            {/* Phone */}
-            <div>
-              <h3 className='text-sm mb-2 font-semibold'>Telepon:</h3>
-              <p className='text-sm text-white/90'>
-                0812-3456-7890 <br />
-                0813-9876-5432
-              </p>
-            </div>
-
-            {/* Schedule */}
-            <div>
-              <h3 className='text-sm mb-2 font-semibold'>Jam Operasional:</h3>
-              <p className='text-sm text-white/90'>
-                Senin - Sabtu <br />
-                08.00 - 17.00
-              </p>
-            </div>
+        {/* ===== Contact Cards ===== */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+          {/* WhatsApp */}
+          <div className='bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition'>
+            <i className='ri-whatsapp-line text-3xl mb-3 text-black'></i>
+            <h3 className='font-semibold mb-1 text-black'>WhatsApp</h3>
+            <p className='text-gray-500 text-sm'>+62 857-8524-2714</p>
           </div>
 
-          {/* Newsletter */}
-          <div className='max-w-md mx-auto text-center space-y-4 relative z-10'>
-            <p className='text-sm'>Dapatkan info promo dan menu terbaru</p>
-
-            <form className='flex items-center bg-white/20 border border-white rounded-full p-2'>
-              <input
-                type='email'
-                placeholder='Masukkan email Anda'
-                className='flex-1 bg-transparent text-white placeholder-white/80 text-sm px-2 outline-none'
-              />
-              <button
-                type='submit'
-                className='bg-white text-fc text-sm px-4 py-2 rounded-full font-semibold hover:scale-105 transition'
-              >
-                Subscribe
-              </button>
-            </form>
+          {/* Instagram */}
+          <div className='bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition'>
+            <i className='ri-instagram-line text-3xl mb-3 text-black'></i>
+            <h3 className='font-semibold mb-1 text-black'>Instagram</h3>
+            <p className='text-gray-500 text-sm'>@hijabstore</p>
           </div>
+
+          {/* Location */}
+          <div className='bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition'>
+            <i className='ri-map-pin-line text-3xl mb-3 text-black'></i>
+            <h3 className='font-semibold mb-1 text-black'>Lokasi</h3>
+            <p className='text-gray-500 text-sm'>
+              Surabaya <br />
+              Jawa Timur
+            </p>
+          </div>
+
+          {/* Schedule */}
+          <div className='bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition'>
+            <i className='ri-time-line text-3xl mb-3 text-black'></i>
+            <h3 className='font-semibold mb-1 text-black'>Jam Operasional</h3>
+            <p className='text-gray-500 text-sm'>
+              Senin - Sabtu <br />
+              08.00 - 21.00
+            </p>
+          </div>
+        </div>
+
+        {/* ===== Promo Ramadhan ===== */}
+        <div className='mt-14 text-center bg-black text-white rounded-xl p-6 max-w-2xl mx-auto shadow-md'>
+          <p className='text-lg font-semibold'>
+            Promo Ramadhan Diskon Hingga 30%
+          </p>
+          <p className='text-white/80 text-sm mt-2'>
+            Berlaku selama bulan Ramadhan • Stok terbatas
+          </p>
         </div>
       </div>
     </section>

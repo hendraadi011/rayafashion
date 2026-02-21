@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className='py-8 font-a2'>
+    <footer className='py-8 font-a2 bg-black'>
       <div className='container mx-auto px-4'>
         <div className='flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left'>
           {/* Logo */}
-          <a href='/' className='text-2xl md:text-3xl font-semibold text-fc'>
-            Raya Delight
+          <a href='/' className='text-2xl md:text-3xl font-semibold text-white'>
+            RayaFashion
           </a>
 
           {/* Social */}
@@ -13,7 +13,7 @@ const Footer = () => {
             <a
               href='#'
               target='_blank'
-              className='text-gray-600 hover:text-fc transition'
+              className='text-white hover:text-gray-400 transition'
             >
               <i className='ri-facebook-circle-line'></i>
             </a>
@@ -21,7 +21,7 @@ const Footer = () => {
             <a
               href='#'
               target='_blank'
-              className='text-gray-600 hover:text-fc transition'
+              className='text-white hover:text-gray-400 transition'
             >
               <i className='ri-instagram-line'></i>
             </a>
@@ -29,14 +29,14 @@ const Footer = () => {
             <a
               href='#'
               target='_blank'
-              className='text-gray-600 hover:text-fc transition'
+              className='text-white hover:text-gray-400 transition'
             >
               <i className='ri-twitter-line'></i>
             </a>
           </div>
 
           {/* Copy */}
-          <span className='text-sm text-gray-500'>
+          <span className='text-sm text-white'>
             © {new Date().getFullYear()} Kue Lebaran. All rights reserved.
           </span>
         </div>
