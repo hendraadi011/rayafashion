@@ -2,28 +2,30 @@ import { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
 import RoutesIndex from './routes'
 
+// ===== Brand Dinamis =====
 const getBrandName = () => {
   const host = window.location.hostname
   const parts = host.split('.')
 
   // localhost / IP
   if (host === 'localhost' || /^\d+.\d+.\d+.\d+$/.test(host)) {
-    return 'Sweet Cake'
+    return 'Raya Hijab'
   }
 
   // domain utama
-  if (host === 'sweetcake.com') {
-    return 'Sweet Cake'
+  if (host === 'rayahijab.com') {
+    return 'Raya Hijab'
   }
 
-  // subdomain (opsional)
+  // subdomain
   if (parts.length >= 3) {
-    return parts[0].charAt(0).toUpperCase() + parts[0].slice(1) + ' Cake'
+    return parts[0].charAt(0).toUpperCase() + parts[0].slice(1) + ' Hijab'
   }
 
-  return 'Sweet Cake'
+  return 'Raya Hijab'
 }
 
+// ===== Helper Meta =====
 function setMetaTag(name, content) {
   let tag = document.querySelector(`meta[name="${name}"]`)
   if (!tag) {
@@ -48,34 +50,57 @@ function App() {
   useEffect(() => {
     const brand = getBrandName()
     const url = window.location.origin
-    const ogImage = `${url}/images/og-cake.jpg`
+    const ogImage = `${url}/images/og-hijab.jpg`
 
-    // Title SEO (intent beli)
-    document.title = `${brand} | Pesan Kue Ulang Tahun & Custom Cake`
+    // ===== Title (SEO Intent Beli) =====
+    document.title = `${brand} | Toko Hijab & Fashion Muslimah Modern`
 
-    // Description
+    // ===== Description =====
     setMetaTag(
       'description',
-      `${brand} menyediakan kue ulang tahun, wedding cake, dan custom cake dengan desain cantik dan rasa premium. Pesan mudah via WhatsApp.`
+      `${brand} menyediakan hijab premium, dress muslimah, tunik, dan fashion wanita terbaru. Koleksi modern, nyaman, dan stylish. Promo spesial Ramadhan & Lebaran. Pesan sekarang!`
     )
 
-    // Keywords
+    // ===== Keywords =====
     setMetaTag(
       'keywords',
-      `kue ulang tahun, custom cake, wedding cake, bakery, pesan kue online, dessert box, kue homemade, ${brand}`
+      `
+      hijab terbaru,
+      hijab premium,
+      fashion muslimah,
+      baju muslim wanita,
+      dress muslimah modern,
+      tunik wanita,
+      outfit lebaran,
+      hijab ramadhan,
+      toko hijab online,
+      ${brand}
+      `
     )
 
-    // Open Graph (WA / Facebook)
-    setOGTag('og:title', `${brand} | Kue Cantik untuk Momen Spesial`)
+    // ===== Robots =====
+    setMetaTag('robots', 'index, follow')
+
+    // ===== Open Graph (WA / Facebook) =====
+    setOGTag('og:title', `${brand} | Fashion Muslimah Modern & Elegan`)
     setOGTag(
       'og:description',
-      `Homemade cake premium dengan desain custom. Cocok untuk ulang tahun, wedding, dan acara spesial.`
+      `Koleksi hijab dan fashion muslimah terbaru untuk Ramadhan & Lebaran. Stylish, nyaman, dan berkualitas premium.`
     )
     setOGTag('og:image', ogImage)
     setOGTag('og:url', url)
     setOGTag('og:type', 'website')
 
-    // Canonical
+    // ===== Twitter Card =====
+    setMetaTag('twitter:card', 'summary_large_image')
+    setMetaTag('twitter:title', `${brand} | Hijab & Fashion Muslimah`)
+    setMetaTag(
+      'twitter:description',
+      `Temukan koleksi hijab dan outfit muslimah terbaru dengan kualitas terbaik.`
+    )
+    setMetaTag('twitter:image', ogImage)
+
+    // ===== Canonical =====
     let canonical = document.querySelector('link[rel="canonical"]')
     if (!canonical) {
       canonical = document.createElement('link')
@@ -87,8 +112,8 @@ function App() {
 
   return (
     <>
-      {' '}
-      <Toaster /> <RoutesIndex />
+      <Toaster />
+      <RoutesIndex />
     </>
   )
 }
